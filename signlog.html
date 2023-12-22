@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    body {
+      background-image: url(https://www.w3schools.com/howto/img_link_tree_template1_bg.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+      text-align: center;
+    }
+
+    h2 {
+      color: #fff;
+    }
+
+    form {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .w3-purple, .w3-hover-purple:hover {
+      color: #fff!important;
+      background-color: rgba(156, 39, 176, 0.6) !important;
+    }
+
+    .profile-page {
+      display: none;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #333;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #profileUsername {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    #profileInfo {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    #userIcon {
+      width: 150px;
+      height: 150px;
+      background-size: cover;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+    }
+
+    #logoutButton {
+      background-color: #f44336;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #logoutButton:hover {
+      background-color: #d32f2f;
+    }
+
+    .settings-icon {
+      font-size: 24px;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .settings-panel {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .settings-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      text-align: left;
+    }
+
+    .file-input-container {
+      margin-bottom: 20px;
+    }
+
+    #changePhotoInput {
+      display: none;
+    }
+
+    #changePhotoLabel {
+      background-color: #fff;
+      color: #4CAF50;
+      border: 1px solid #4CAF50;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    #changePhotoLabel:hover {
+      background-color: #4CAF50;
+      color: #fff;
+    }
+
+    #removePhotoButton {
+      background-color: #f44336;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #removePhotoButton:hover {
+      background-color: #d32f2f;
+    }
+
+    #deleteAccountButton {
+      background-color: #f44336;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #deleteAccountButton:hover {
+      background-color: #d32f2f;
+    }
+
+    .forgot-password-container {
+      display: none;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #333;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #adminContact {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-top: 20px;
+    }
+
+    .change-credentials-container {
+      margin-bottom: 20px;
+    }
+
+    .messaging-container {
+      display: none;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #333;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div id="loginFormContainer">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+
+        <button type="button" onclick="login()">Login</button>
+        <p><a href="#" onclick="showForgotPassword()">Forgot Password?</a></p>
+      </form>
+    </div>
+
+    <div id="forgotPasswordContainer" class="forgot-password-container">
+      <h2>Forgot Password?</h2>
+      <p>Contact the admin to know or change your password.</p>
+      <div id="adminContact">
+        <p>Email: ugcorporationltd@gmail.com</p>
+      </div>
+      <button onclick="closeForgotPassword()">Close</button>
+    </div>
+
+    <div id="profilePage" class="profile-page">
+      <i id="userIcon" class="fas fa-user-circle"></i>
+      <div id="profileUsername"></div>
+      <div id="profileInfo"></div>
+      <button class="settings-icon" onclick="showSettings()">⚙️</button>
+      <button class="watch-movies-button" onclick="showMoviesPanel()">Watch Movies</button>
+      <button id="logoutButton" onclick="logout()">Logout</button>
+    </div>
+
+    <div id="moviesPanel" class="messaging-container" style="display: none;">
+      <div class="movie-search-container">
+        <input type="text" id="movieSearch" placeholder="Enter movie name...">
+        <div id="movieResults"></div>
+      </div>
+
+      <!-- Movie Container -->
+      <div id="movieContainer" class="messaging-container">
+        <iframe id="movieFrame" frameborder="0" allowfullscreen width="800" height="600"></iframe>
+      </div>
+
+    <div id="settingsPanel" class="settings-panel">
+      <div class="settings-content">
+        <h2>Settings</h2>
+        <div class="file-input-container">
+          <input type="file" id="changePhotoInput" accept="image/*" onchange="changeProfilePhoto()">
+          <label for="changePhotoInput" id="changePhotoLabel">Change Profile Photo</label>
+          <button id="removePhotoButton" onclick="removeProfilePhoto()">Remove Photo</button>
+        </div>
+        <div class="change-credentials-container">
+          <label for="newUsername">New Username:</label>
+          <input type="text" id="newUsername" required>
+
+          <label for="newPassword">New Password:</label>
+          <input type="password" id="newPassword" required>
+
+          <button onclick="changeCredentials()">Change Credentials</button>
+        </div>
+        <button id="deleteAccountButton" onclick="deleteAccount()">Delete Account</button>
+        <button onclick="closeSettings()">Close</button>
+      </div>
+    </div>
+
+    <script>
+      let users = [
+        { username: 'admin', password: 'admin421', info: 'Admin Controls the whole world', photo: 'ug90.jpg' },
+        { username: 'guest', password: '', info: 'You are not allowed to change the username or password', photo: 'guest.png' },
+        { username: 'anshul', password: '', info: 'Hi Anshul, how are you!!', photo: 'gues t.png' },      
+        { username: 'chirayu', password: '', info: 'Hi Chirayu, how are you!!', photo: 'guest.png' },
+      ];
+
+      function login() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        const user = users.find(u => u.username === username && u.password === password);
+
+        if (user) {
+          document.getElementById('loginFormContainer').style.display = 'none';
+          const profilePage = document.getElementById('profilePage');
+          profilePage.style.display = 'block';
+          document.getElementById('userIcon').style.backgroundImage = `url(${user.photo})`;
+          document.getElementById('profileUsername').innerText = `Welcome, ${username}`;
+          document.getElementById('profileInfo').innerText = user.info;
+        } else {
+          alert('Invalid username or password');
+        }
+      }
+
+      function logout() {
+        document.getElementById('loginFormContainer').style.display = 'block';
+        document.getElementById('profilePage').style.display = 'none';
+      }
+
+      function showSettings() {
+        document.getElementById('settingsPanel').style.display = 'flex';
+      }
+
+      function closeSettings() {
+        document.getElementById('settingsPanel').style.display = 'none';
+      }
+
+      function changeProfilePhoto() {
+        const fileInput = document.getElementById('changePhotoInput');
+        const selectedFile = fileInput.files[0];
+
+        if (selectedFile) {
+          const reader = new FileReader();
+
+          reader.onload = function (e) {
+            const newPhoto = e.target.result;
+            const profileIcon = document.getElementById('userIcon');
+            profileIcon.style.backgroundImage = `url(${newPhoto})`;
+
+            const loggedInUser = users.find(u => u.username === document.getElementById('username').value);
+            loggedInUser.photo = newPhoto;
+          };
+
+          reader.readAsDataURL(selectedFile);
+        }
+
+        closeSettings();
+      }
+
+      function removeProfilePhoto() {
+        const defaultPhotoURL = 'guest.png';
+        const profileIcon = document.getElementById('userIcon');
+        profileIcon.style.backgroundImage = `url(${defaultPhotoURL})`;
+
+        const loggedInUser = users.find(u => u.username === document.getElementById('username').value);
+        loggedInUser.photo = defaultPhotoURL;
+        closeSettings();
+      }
+
+      function changeCredentials() {
+        const newUsername = document.getElementById('newUsername').value;
+        const newPassword = document.getElementById('newPassword').value;
+
+        const loggedInUser = users.find(u => u.username === document.getElementById('username').value);
+        loggedInUser.username = newUsername;
+        loggedInUser.password = newPassword;
+      }
+
+      function deleteAccount() {
+        const confirmation = confirm('Are you sure you want to delete your account? This action cannot be undone.');
+
+        if (confirmation) {
+          const username = document.getElementById('username').value;
+          users = users.filter(u => u.username !== username);
+          alert('Your account has been deleted.');
+          logout(); // Log out the user after deleting the account
+        }
+      }
+
+      function showForgotPassword() {
+        document.getElementById('forgotPasswordContainer').style.display = 'block';
+        document.getElementById('loginFormContainer').style.display = 'none';
+      }
+
+      function closeForgotPassword() {
+        document.getElementById('forgotPasswordContainer').style.display = 'none';
+        document.getElementById('loginFormContainer').style.display = 'block';
+      }
+
+      function showMoviesPanel() {
+        document.getElementById('moviesPanel').style.display = 'block';
+      }
+
+      function searchMovies() {
+        const searchInput = document.getElementById('movieSearch').value.toLowerCase();
+        const movieResultsContainer = document.getElementById('movieResults');
+        movieResultsContainer.innerHTML = '';
+
+        // Sample movies for testing
+        const movies = [
+          { title: 'Elemental', link: 'https://drive.google.com/file/d/1AiOOyJ-Z9kXNwEh2WnzvtNf9kAF46h-A/view' },
+          { title: '1920 horrors of the heart', link: 'https://drive.google.com/file/d/1cM5Q8XOjhfs5Jl83cZvpJSk7onyIsKo8/view' },
+          { title: 'Interstellar', link: 'https://drive.google.com/file/d/your-movie-id3/view' },
+        ];
+
+        // Filter movies based on the search input
+        const filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(searchInput));
+
+        // Display search results
+        filteredMovies.forEach(movie => {
+          const resultElement = document.createElement('div');
+          resultElement.classList.add('movie-result');
+          resultElement.textContent = movie.title;
+          resultElement.addEventListener('click', () => showMovie(movie.link));
+          movieResultsContainer.appendChild(resultElement);
+        });
+      }
+
+      // Extracts the Google Drive file ID from the given link
+      function getDriveFileId(link) {
+        const fileIdMatch = link.match(/\/d\/(.*?)\//);
+        return fileIdMatch ? fileIdMatch[1] : null;
+      }
+
+      // Attach searchMovies function to the input's oninput event
+      document.getElementById('movieSearch').addEventListener('input', searchMovies);
+
+      function showMovie(movieLink) {
+        const movieContainer = document.getElementById('movieContainer');
+        const movieFrame = document.getElementById('movieFrame');
+
+        movieFrame.src = `https://drive.google.com/file/d/${getDriveFileId(movieLink)}/preview`;
+        movieContainer.style.display = 'block';
+      }
+    </script>
+  </div>
+</body>
+</html>
